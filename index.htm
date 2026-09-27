@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Resortes Industriales AR - Diseño y fabricación de resortes de compresión, tensión, torsión, troquel y formas de alambre.">
+    <title>Resortes Industriales AR</title>
+
+    <style>
+        :root {
+            --azul: #03377c;
+            --azul-oscuro: #022b62;
+            --azul-claro: #eaf1fa;
+            --texto: #111;
+            --gris: #5b5b5b;
+            --blanco: #fff;
+            --borde: #dce3eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--texto);
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,.97);
+            border-bottom: 1px solid var(--borde);
+            padding: 15px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .logo {
+            color: var(--azul);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 24px;
+            letter-spacing: 1px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .logo small {
+            display: block;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            letter-spacing: 2px;
+            font-weight: bold;
+            margin-top: -4px;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav a {
+            color: var(--azul);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: var(--azul-oscuro);
+        }
+
+        .hero {
+            min-height: 88vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .hero-content {
+            padding: 70px 7% 70px 9%;
+        }
+
+        .eyebrow {
+            color: var(--azul);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(22px, 3vw, 34px);
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .hero h1 {
+            color: var(--azul);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(45px, 6vw, 82px);
+            line-height: .98;
+            font-weight: 400;
+            margin-bottom: 35px;
+        }
+
+        .ribbon {
+            display: inline-block;
+            background: var(--azul);
+            color: white;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 20px;
+            padding: 15px 55px 15px 25px;
+            clip-path: polygon(0 0, 88% 0, 100% 50%, 88% 100%, 0 100%);
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            max-width: 610px;
+            font-size: 19px;
+            font-weight: 700;
+            text-align: justify;
+        }
+
+        .hero-visual {
+            height: 100%;
+            min-height: 600px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background:
+                radial-gradient(circle at 50% 50%, rgba(3,55,124,.05), transparent 65%);
+        }
+
+        .hero-visual::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, white 0%, transparent 25%);
+            pointer-events: none;
+        }
+
+        .hero-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        section {
+            padding: 85px 7%;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-heading h2 {
+            color: var(--azul);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(36px, 5vw, 58px);
+            font-weight: 400;
+            text-transform: uppercase;
+            line-height: 1.05;
+        }
+
+        .section-heading p {
+            color: var(--gris);
+            margin-top: 10px;
+            font-size: 17px;
+        }
+
+        .intro {
+            display: grid;
+            grid-template-columns: minmax(280px, .8fr) 1.2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .intro-title {
+            background: var(--azul);
+            color: white;
+            padding: 30px;
+            clip-path: polygon(0 0, 100% 0, 90% 50%, 100% 100%, 0 100%, 10% 50%);
+            text-align: center;
+        }
+
+        .intro-title h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 48px;
+            font-weight: 400;
+            line-height: 1.05;
+        }
+
+        .intro-copy {
+            font-size: 18px;
+        }
+
+        .intro-copy p + p {
+            margin-top: 22px;
+        }
+
+        .services {
+            background: #fff;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            border: 1px solid var(--borde);
+            background: #fff;
+            overflow: hidden;
+            transition: .25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 35px rgba(3,55,124,.13);
+        }
+
+        .card-image {
+            height: 180px;
+            background: #f7f8fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .card h3 {
+            color: var(--azul);
+            font-family: Georgia, "Times New Roman", serif;
+            font-weight: 400;
+            font-size: 20px;
+            text-align: center;
+            padding: 18px 10px 22px;
+            min-height: 75px;
+        }
+
+        .capacity {
+            position: relative;
+            color: white;
+            background:
+                linear-gradient(rgba(3,55,124,.90), rgba(3,55,124,.90)),
+                url("assets/capacity-bg.jpeg") center/cover;
+        }
+
+        .capacity .section-heading h2,
+        .capacity .section-heading p {
+            color: white;
+        }
+
+        .capacity-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .capacity-column {
+            font-size: 17px;
+        }
+
+        .capacity-column p {
+            margin-bottom: 22px;
+        }
+
+        .capacity-column ul {
+            list-style: none;
+            margin: 10px 0 25px;
+        }
+
+        .capacity-column li {
+            margin: 6px 0;
+        }
+
+        .capacity-column li::before {
+            content: "* ";
+            font-weight: bold;
+        }
+
+        .highlight {
+            font-size: 23px;
+            font-weight: bold;
+            border-left: 4px solid white;
+            padding-left: 18px;
+        }
+
+        .contact {
+            background: #fff;
+        }
+
+        .contact-grid {
+            max-width: 1050px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            color: var(--azul);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 34px;
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
+
+        .contact-info p {
+            margin: 15px 0;
+            font-size: 17px;
+        }
+
+        .contact-info a {
+            color: var(--azul);
+            font-weight: bold;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #cfd7e1;
+            font-size: 16px;
+            font-family: inherit;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--azul);
+            box-shadow: 0 0 0 3px rgba(3,55,124,.08);
+        }
+
+        textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .btn {
+            border: 0;
+            background: var(--azul);
+            color: white;
+            padding: 15px 25px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background: var(--azul-oscuro);
+        }
+
+        footer {
+            background: var(--azul);
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .whatsapp {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 58px;
+            height: 58px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 26px;
+            box-shadow: 0 5px 18px rgba(0,0,0,.25);
+            z-index: 2000;
+        }
+
+        @media (max-width: 1050px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-visual {
+                min-height: 420px;
+                max-height: 500px;
+            }
+
+            .intro {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 700px) {
+            header {
+                flex-direction: column;
+                padding: 15px 5%;
+            }
+
+            nav {
+                gap: 12px;
+                font-size: 14px;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+
+            .cards,
+            .capacity-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content {
+                padding: 60px 6%;
+            }
+
+            .hero-visual {
+                min-height: 300px;
+            }
+
+            .ribbon {
+                font-size: 17px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        RESORTES INDUSTRIALES
+        <small>“AR”</small>
+    </div>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#capacidad">Capacidad</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+</header>
+
+<section class="hero" id="inicio">
+    <div class="hero-content">
+        <div class="eyebrow">RESORTES</div>
+        <h1>INDUSTRIALES “AR”</h1>
+
+        <div class="ribbon">RESORTES INDUSTRIALES</div>
+
+        <p>
+            Fabricamos todo tipo de resortes industriales para aplicaciones de
+            mantenimiento y producción. Contamos con máquinas automáticas para
+            la fabricación de resortes de compresión, con capacidad para trabajar
+            materiales desde 0.010” hasta 0.250” de diámetro.
+        </p>
+    </div>
+
+    <div class="hero-visual">
+        <img src="assets/hero-springs.png" alt="Resortes industriales">
+    </div>
+</section>
+
+<section id="servicios">
+    <div class="intro">
+        <div class="intro-title">
+            <h2>NUESTROS<br>SERVICIOS</h2>
+        </div>
+
+        <div class="intro-copy">
+            <p>
+                En <strong>Resortes Industriales AR</strong> nos especializamos en
+                el diseño y fabricación de resortes de compresión, tensión, torsión
+                y cónicos, adaptándonos a las especificaciones, materiales, medidas
+                y diámetros requeridos para cada aplicación.
+            </p>
+
+            <p>
+                Ya sea que cuente con un diseño o requiera apoyo para desarrollarlo,
+                nuestro equipo puede desarrollar la ingeniería necesaria para ofrecerle
+                la solución más adecuada. Brindamos asesoría personalizada y
+                acompañamiento durante todo el proceso, garantizando productos de alta
+                calidad que satisfacen las necesidades de su proyecto.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="services">
+    <div class="section-heading">
+        <h2>Servicios</h2>
+        <p>Fabricación de resortes y formas de alambre sobre diseño</p>
+    </div>
+
+    <div class="cards">
+        <article class="card">
+            <div class="card-image">
+                <img src="assets/tension.png" alt="Resortes de tensión">
+            </div>
+            <h3>RESORTES DE TENSIÓN</h3>
+        </article>
+
+        <article class="card">
+            <div class="card-image">
+                <img src="assets/compression.png" alt="Resortes de compresión">
+            </div>
+            <h3>RESORTES DE COMPRESIÓN</h3>
+        </article>
+
+        <article class="card">
+            <div class="card-image">
+                <img src="assets/torsion.png" alt="Resortes de torsión">
+            </div>
+            <h3>RESORTES DE TORSIÓN</h3>
+        </article>
+
+        <article class="card">
+            <div class="card-image">
+                <img src="assets/die.png" alt="Resortes de troquel">
+            </div>
+            <h3>RESORTES DE TROQUEL</h3>
+        </article>
+
+        <article class="card">
+            <div class="card-image">
+                <img src="assets/wire-forms.png" alt="Formas de alambre">
+            </div>
+            <h3>FORMAS DE ALAMBRE</h3>
+        </article>
+    </div>
+</section>
+
+<section class="capacity" id="capacidad">
+    <div class="section-heading">
+        <h2>Capacidad de fabricación</h2>
+        <p>Producción, materiales y tiempos de entrega</p>
+    </div>
+
+    <div class="capacity-grid">
+        <div class="capacity-column">
+            <p class="highlight">
+                Contamos con la capacidad de fabricar hasta 500,000 resortes de
+                compresión al mes y 100,000 resortes de tensión al mes, utilizando
+                calibres de alambre desde 0.010” hasta 0.156”.
+            </p>
+
+            <p>Fabricamos una amplia variedad de resortes y formas de alambre, incluyendo:</p>
+
+            <ul>
+                <li>Resortes de compresión</li>
+                <li>Resortes de tensión</li>
+                <li>Resortes de torsión</li>
+                <li>Resortes de doble torsión</li>
+                <li>Resortes para troquel tipo Raymond</li>
+                <li>Formas de alambre especiales sobre diseño</li>
+            </ul>
+
+            <p>
+                Tenemos la capacidad de fabricar prácticamente cualquier tipo de resorte,
+                con excepción de resortes para válvulas de motor y amortiguadores.
+            </p>
+        </div>
+
+        <div class="capacity-column">
+            <p><strong>Trabajamos con materiales de alta calidad, entre ellos:</strong></p>
+
+            <ul>
+                <li>MB2</li>
+                <li>Alambre Piano</li>
+                <li>Acero Inoxidable 302</li>
+                <li>Acero Inoxidable 304</li>
+                <li>Acero Inoxidable 316</li>
+            </ul>
+
+            <p>
+                Además, para resortes de gran tamaño, fabricamos piezas con diámetros
+                de alambre de hasta 1.375” en acero 4140.
+            </p>
+
+            <p>
+                Los tiempos de fabricación varían de acuerdo con las especificaciones
+                del resorte y el volumen solicitado. Ofrecemos un servicio de entrega
+                eficiente, con tiempos que van de 1 a 5 días hábiles, dependiendo de la
+                complejidad del producto y la cantidad requerida.
+            </p>
+
+            <p>
+                Nos especializamos en la fabricación de resortes personalizados con
+                altos estándares de calidad, precisión y cumplimiento en tiempos de
+                entrega, adaptándonos a las necesidades de cada cliente.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="contact" id="contacto">
+    <div class="section-heading">
+        <h2>Información de contacto</h2>
+        <p>Solicita información o una cotización</p>
+    </div>
+
+    <div class="contact-grid">
+        <div class="contact-info">
+            <h3>Resortes Industriales AR</h3>
+
+            <p><strong>Nombre:</strong> Juan Higinio Arce Garcia</p>
+            <p><strong>Celular:</strong>
+                <a href="tel:+528113848299">8113848299</a>
+            </p>
+            <p><strong>Ubicación:</strong> Av. Rómulo Garza 223-A Col. del Lago,
+                San Nicolás de los Garza.</p>
+            <p><strong>Correo:</strong>
+                <a href="mailto:resortes_ardu@hotmail.com">resortes_ardu@hotmail.com</a>
+            </p>
+        </div>
+
+        <form onsubmit="enviarFormulario(event)">
+            <input type="text" id="nombre" placeholder="Nombre" required>
+            <input type="email" id="correo" placeholder="Correo electrónico" required>
+            <input type="text" id="telefono" placeholder="Teléfono" required>
+            <textarea id="mensaje" placeholder="Escribe tu mensaje..." required></textarea>
+            <button type="submit" class="btn">Solicitar cotización por WhatsApp</button>
+        </form>
+    </div>
+</section>
+
+<a
+    class="whatsapp"
+    href="https://wa.me/528113848299"
+    target="_blank"
+    aria-label="WhatsApp"
+>☎</a>
+
+<footer>
+    <p>© <span id="year"></span> <strong>Resortes Industriales “AR”</strong>. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function enviarFormulario(event) {
+        event.preventDefault();
+
+        const nombre = document.getElementById("nombre").value;
+        const correo = document.getElementById("correo").value;
+        const telefono = document.getElementById("telefono").value;
+        const mensaje = document.getElementById("mensaje").value;
+
+        const texto =
+            `Hola, soy ${nombre}.%0A%0A` +
+            `Correo: ${correo}%0A` +
+            `Teléfono: ${telefono}%0A%0A` +
+            `Mensaje: ${mensaje}`;
+
+        const numero = "528113848299";
+        window.open(`https://wa.me/${numero}?text=${texto}`, "_blank");
+    }
+</script>
+
+</body>
+</html>
