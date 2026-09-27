@@ -1,2 +1,0 @@
-# Resortesymaquinados
-Resortes
